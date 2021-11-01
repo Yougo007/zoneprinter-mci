@@ -10,7 +10,7 @@ steps:
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', './kubernetes/us.yaml']
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-east11'
+  - 'CLOUDSDK_COMPUTE_ZONE=us-east1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=us-east1-gke'
 
 
