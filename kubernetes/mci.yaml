@@ -1,11 +1,12 @@
-apiVersion: networking.gke.io/v1
-kind: MultiClusterIngress
+
+apiVersion: extensions/v1beta1
+kind: Ingress
 metadata:
-  name: zone-ingress
-  namespace: zoneprinter
+  name: zoneprinter
+  annotations:
+    kubernetes.io/ingress.class: gce-multi-cluster
+    kubernetes.io/ingress.global-static-ip-name: g-ingress
 spec:
-  template:
-    spec:
-      backend:
-        serviceName: zone-mcs
-        servicePort: 8080
+  backend:
+    serviceName: zoneprinter
+    servicePort: 80
