@@ -1,21 +1,21 @@
 timeout: 10800s
 steps:
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', './kubernetes/deploy.yaml']
+  args: ['apply', '-f', './kubernetes/deploy.yaml', '--validate=false']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-west1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=us-west1-gke'
 
 
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', './kubernetes/deploy.yaml']
+  args: ['apply', '-f', './kubernetes/deploy.yaml', '--validate=false']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-east1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=us-east1-gke'
 
 
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', './kubernetes/deploy.yaml']
+  args: ['apply', '-f', './kubernetes/deploy.yaml', '--validate=false']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-east1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=asia-east1-gke'
