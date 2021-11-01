@@ -1,0 +1,22 @@
+timeout: 10800s
+steps:
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './kubernetes/eu.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-west1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=us-west1-gke'
+
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './kubernetes/us.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-east11'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=us-east1-gke'
+
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', './kubernetes/asia.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-east1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=asia-east1-gke'
+
