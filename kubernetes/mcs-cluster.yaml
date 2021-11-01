@@ -14,6 +14,6 @@ spec:
         port: 8080
         targetPort: 8080
   clusters:
-  - link: "asia-south1-a/asia-cluster"
-  - link: "europe-west1-c/eu-cluster"
-  - link: "us-central1-f/us-cluster"
+  - link: "asia-east1/asia-east1-gke"
+  - link: "us-east1/us-east1-gke"
+  - link: "us-west1/us-west1"
