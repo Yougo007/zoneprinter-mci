@@ -1,15 +1,14 @@
-apiVersion: networking.gke.io/v1
-kind: MultiClusterService
+apiVersion: v1
+kind: Service
 metadata:
-  name: zone-mcs
-  namespace: zoneprinter
+name: zoneprinter
+  labels:
+    app: zoneprinter
 spec:
-  template:
-    spec:
-      selector:
-        app: zoneprinter
-      ports:
-      - name: web
-        protocol: TCP
-        port: 8080
-        targetPort: 8080
+  type: NodePort
+  selector:
+    app: zoneprinter
+  ports:
+  - name: http
+    port: 80
+nodePort: 30061
